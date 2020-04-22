@@ -1,0 +1,99 @@
+<ng-container *ngTemplateOutlet="greet"></ng-container>
+<hr>
+<p>Without context, let-x is useless:</p>
+<ng-container *ngTemplateOutlet="eng"></ng-container>
+<hr>
+<p>Without declaring let-x="contextPropertyName", let-x="$implicit". If $implicit does not exist, let-x is useless:</p>
+<ng-container *ngTemplateOutlet="eng; context: myContext"></ng-container>
+<hr>
+<p>Let-x must be use with context AND contextPropertyName:</p>
+<ng-container *ngTemplateOutlet="svk; context: myContext"></ng-container>
+<hr>
+ <! –– -------------------------------------- ––>
+<ng-template #greet>
+  <span>Hello</span>
+</ng-template>
+<p></p>
+<ng-template #eng let-name>
+  <span>Hello {{name}}!</span>
+</ng-template>
+<ng-template #svk let-person="localSk">
+  <span>Ahoj {{person}}!</span>
+</ng-template>
+
+ <! –– -------------------------------------- ––>
+<h2>THE SAME: </h2>
+<ng-container *ngTemplateOutlet="eng; context: myContext"></ng-container>
+<hr>
+<ng-template [ngTemplateOutlet]="eng"
+             [ngTemplateOutletContext]="myContext"
+></ng-template>
+
+ <! –– -------------------------------------- ––>
+<h2>THE SAME: </h2>
+<ng-template [ngIf]="true">
+  <div *ngIf="true">OK</div>
+</ng-template>
+<hr>
+<ng-container *ngIf="true">
+  <div *ngIf="true">OK</div>
+</ng-container>
+<hr>
+ <! –– -------------------------------------- ––>
+<h2>NOTICE: Cannot put ng-container as a content projection</h2>
+<h2>PASSING SINGLE TEMPLATE: </h2>
+<ng-template #template>
+    <h1>HEADER</h1>
+    <h2>HEADER 2</h2>
+    <p>paragraph</p>
+</ng-template>
+<! –– VIA HTML ––>
+<hr>
+<h2>PASSING NG-TEMPLATE TO CHILD VIA NG-CONTENT - CANNOT SEE INSIDE NG-TEMPLATE:</h2>
+<app-child>
+  <ng-template [ngTemplateOutlet]="template" ></ng-template>
+</app-child>
+
+<hr>
+<h2>PASSING REAL HTML TO CHILD VIA NG-CONTENT - CAN SEE INSIDE HTML TAG (OUTER TAG ONLY):</h2>
+<app-child>
+  <h1>HEADER<p>test</p></h1>
+  <h1>HEADER<p>test</p></h1>
+  <p>paragraph</p>
+</app-child>
+
+ <! –– VIA TS TO HTML ––>
+<hr>
+<h2>PASSING NG-TEMPLATE TO CHILD VIA @INPUT -> NG-CONTAINER(NG-TEMPLATE)</h2>
+<app-child [templateInput]="template">
+</app-child>
+
+<hr>
+<h2>PASSING NG-TEMPLATE TO CHILD VIA @CONTENTCHILD -> NG-CONTAINER(NG-TEMPLATE)</h2>
+<app-child>
+  <ng-template [ngTemplateOutlet]="template" ></ng-template>
+</app-child>
+
+<h2>PASSING MULTIPLE TEMPLATES: </h2>
+<ng-template #template1>
+    <h1>HEADER</h1>
+    <h2>HEADER 2</h2>
+    <p>paragraph</p>
+</ng-template>
+<ng-template #template2>
+    <h1>HEADER2</h1>
+    <h2>HEADER 22</h2>
+    <p>paragraph2</p>
+</ng-template>
+ <! –– VIA TS TO HTML ONLY ––>
+<hr>
+<h2>PASSING MULTIPLE NG-TEMPLATE TO CHILD VIA @INPUT -> NG-CONTAINER(NG-TEMPLATE)</h2>
+<app-child [templateInput1]="template1" [templateInput2]="template2">
+</app-child>
+
+<hr>
+<h2>PASSING MULTIPLE NG-TEMPLATE TO CHILD VIA @CONTENTCHILDREN -> NG-CONTAINER(NG-TEMPLATE)</h2>
+<app-child>
+  <ng-template [ngTemplateOutlet]="template1" ></ng-template>
+  <ng-template [ngTemplateOutlet]="template2" ></ng-template>
+</app-child>
