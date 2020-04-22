@@ -85,6 +85,12 @@
     <h2>HEADER 22</h2>
     <p>paragraph2</p>
 </ng-template>
+<ng-template #template3>
+    <h1>HEADER3</h1>
+    <h2>HEADER 33</h2>
+    <p>paragraph3</p>
+</ng-template>
+
  <! –– VIA TS TO HTML ONLY ––>
 <hr>
 <h2>PASSING MULTIPLE NG-TEMPLATE TO CHILD VIA @INPUT -> NG-CONTAINER(NG-TEMPLATE)</h2>
@@ -94,6 +100,6 @@
 <hr>
 <h2>PASSING MULTIPLE NG-TEMPLATE TO CHILD VIA @CONTENTCHILDREN -> NG-CONTAINER(NG-TEMPLATE)</h2>
 <app-child>
-  <ng-template [ngTemplateOutlet]="template1" ></ng-template>
-  <ng-template [ngTemplateOutlet]="template2" ></ng-template>
+  <ng-template *appMark [ngTemplateOutlet]="template1" ></ng-template>
+  <ng-template *appMark [ngTemplateOutlet]="template2" ></ng-template>
 </app-child>

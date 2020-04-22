@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, TemplateRef, ContentChild, ContentChildren, QueryList  } from '@angular/core';
+import {MarkDirective} from '../mark.directive';
 
 @Component({
   selector: 'app-child',
@@ -19,9 +20,18 @@ export class ChildComponent implements OnInit {
   @ContentChildren(TemplateRef)
   contentChildren: QueryList<TemplateRef<any>>;
 
+  contentChildrenArray: Array<MarkDirective> = [];
+
+  @ContentChildren(TemplateRef,  {descendants: true})
+  contentChildrenDescendant: QueryList<TemplateRef<any>>;
+
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  ngAfterContentInit() {
+    this.contentChildrenArray = this.contentChildren.toArray();
+  }
 }

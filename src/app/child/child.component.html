@@ -1,21 +1,25 @@
+
 <div>
   <ng-content select="h1"></ng-content>
 </div>
 <div>
   <ng-content select="p"></ng-content>
 </div>
+<!--
 <div>
   <ng-content select="ng-template"></ng-content>
 </div>
+
 <ng-container *ngTemplateOutlet="templateInput"></ng-container>
 
 <ng-container *ngTemplateOutlet="contentChild"></ng-container>
-
-<! –– MULTIPLE TEMPLATES: ––>
+//-->
+<! –– MULTIPLE TEMPLATES: -->
 
 <ng-container *ngTemplateOutlet="templateInput1"></ng-container>
 <ng-container *ngTemplateOutlet="templateInput2"></ng-container>
 
-<ng-container *ngTemplateOutlet="contentChildren[0]"></ng-container>
-<ng-container *ngTemplateOutlet="contentChildren[1]"></ng-container>
+<ng-template [ngTemplateOutlet]="contentChildrenArray[0]"></ng-template>
+<ng-template [ngTemplateOutlet]="contentChildrenArray[1]"></ng-template>
+
 
