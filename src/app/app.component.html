@@ -1,3 +1,4 @@
+<p>Normal template:</p>
 <ng-container *ngTemplateOutlet="greet"></ng-container>
 <hr>
 <p>Without context, let-x is useless:</p>
@@ -43,22 +44,23 @@
 <h2>NOTICE: Cannot put ng-container as a content projection</h2>
 <h2>PASSING SINGLE TEMPLATE: </h2>
 <ng-template #template>
-    <h1>HEADER</h1>
+    <h1>HEADER 1</h1>
     <h2>HEADER 2</h2>
     <p>paragraph</p>
 </ng-template>
+
 <! –– VIA HTML ––>
 <hr>
-<h2>PASSING NG-TEMPLATE TO CHILD VIA NG-CONTENT - CANNOT SEE INSIDE NG-TEMPLATE:</h2>
+<h2>PASSING NG-TEMPLATE TO CHILD VIA NG-CONTENT - ONLY SEE OUTER TAG: NG-TEMPLATE:</h2>
 <app-child>
   <ng-template [ngTemplateOutlet]="template" ></ng-template>
 </app-child>
 
 <hr>
-<h2>PASSING REAL HTML TO CHILD VIA NG-CONTENT - CAN SEE INSIDE HTML TAG (OUTER TAG ONLY):</h2>
+<h2>PASSING REAL HTML TO CHILD VIA NG-CONTENT - ONLY SEE OUTER TAG:</h2>
 <app-child>
-  <h1>HEADER<p>test</p></h1>
-  <h1>HEADER<p>test</p></h1>
+  <h1>HEADER 1<p>test 1</p></h1>
+  <h1>HEADER 2<p>test 2</p></h1>
   <p>paragraph</p>
 </app-child>
 
@@ -74,21 +76,17 @@
   <ng-template [ngTemplateOutlet]="template" ></ng-template>
 </app-child>
 
+<hr>
 <h2>PASSING MULTIPLE TEMPLATES: </h2>
 <ng-template #template1>
-    <h1>HEADER</h1>
-    <h2>HEADER 2</h2>
-    <p>paragraph</p>
+    <h1>HEADER 1</h1>
+    <h2>HEADER 1</h2>
+    <p>paragraph1</p>
 </ng-template>
 <ng-template #template2>
-    <h1>HEADER2</h1>
-    <h2>HEADER 22</h2>
+    <h1>HEADER 2</h1>
+    <h2>HEADER 2</h2>
     <p>paragraph2</p>
-</ng-template>
-<ng-template #template3>
-    <h1>HEADER3</h1>
-    <h2>HEADER 33</h2>
-    <p>paragraph3</p>
 </ng-template>
 
  <! –– VIA TS TO HTML ONLY ––>

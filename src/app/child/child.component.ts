@@ -20,7 +20,7 @@ export class ChildComponent implements OnInit {
   @ContentChildren(TemplateRef)
   contentChildren: QueryList<TemplateRef<any>>;
 
-  contentChildrenArray: Array<MarkDirective> = [];
+  contentChildrenArray: Array<TemplateRef<any>> = [];
 
   @ContentChildren(TemplateRef,  {descendants: true})
   contentChildrenDescendant: QueryList<TemplateRef<any>>;
