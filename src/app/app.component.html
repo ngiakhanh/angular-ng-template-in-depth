@@ -51,7 +51,7 @@
 
 <! –– VIA HTML ––>
 <hr>
-<h2>PASSING NG-TEMPLATE TO CHILD VIA NG-CONTENT - ONLY SEE OUTER TAG: NG-TEMPLATE:</h2>
+<h2>PASSING NG-TEMPLATE(RENDERED) TO CHILD VIA NG-CONTENT - ONLY SEE OUTER TAG: NG-TEMPLATE:</h2>
 <app-child>
   <ng-template [ngTemplateOutlet]="template" ></ng-template>
 </app-child>
@@ -67,13 +67,17 @@
  <! –– VIA TS TO HTML ––>
 <hr>
 <h2>PASSING NG-TEMPLATE TO CHILD VIA @INPUT -> NG-CONTAINER(NG-TEMPLATE)</h2>
-<app-child [templateInput]="template">
+<app-child [templateInput1]="template">
 </app-child>
 
 <hr>
 <h2>PASSING NG-TEMPLATE TO CHILD VIA @CONTENTCHILD -> NG-CONTAINER(NG-TEMPLATE)</h2>
 <app-child>
-  <ng-template [ngTemplateOutlet]="template" ></ng-template>
+  <ng-template>
+    <h1>HEADER 1</h1>
+    <h2>HEADER 2</h2>
+    <p>paragraph</p>
+  </ng-template>
 </app-child>
 
 <hr>
@@ -98,6 +102,15 @@
 <hr>
 <h2>PASSING MULTIPLE NG-TEMPLATE TO CHILD VIA @CONTENTCHILDREN -> NG-CONTAINER(NG-TEMPLATE)</h2>
 <app-child>
-  <ng-template *appMark [ngTemplateOutlet]="template1" ></ng-template>
-  <ng-template *appMark [ngTemplateOutlet]="template2" ></ng-template>
+  <ng-template>
+    <h1>HEADER 1</h1>
+    <h2>HEADER 1</h2>
+    <p>paragraph1</p>
+</ng-template>
+<ng-template>
+    <h1>HEADER 2</h1>
+    <h2>HEADER 2</h2>
+    <p>paragraph2</p>
+</ng-template>
+
 </app-child>

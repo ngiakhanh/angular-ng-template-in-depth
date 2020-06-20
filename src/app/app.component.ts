@@ -7,7 +7,7 @@ import { Component, Input, TemplateRef } from '@angular/core';
 })
 export class AppComponent  {
   name = 'Angular';
-  myContext = {$implicit: 'World', localSk: 'Svet'};
+  myContext = {$implicit: 'World', localSk: 'Svet', name: 'Khanh'};
   localSk = 'a';
   
 }
