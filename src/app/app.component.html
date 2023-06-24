@@ -59,8 +59,12 @@
 <hr>
 <h2>PASSING REAL HTML TO CHILD VIA NG-CONTENT - ONLY SEE OUTER TAG:</h2>
 <app-child>
-  <h1>HEADER 1<p>test 1</p></h1>
-  <h1>HEADER 2<p>test 2</p></h1>
+  <h1>HEADER 1
+    <p>test 1</p>
+  </h1>
+  <h1>HEADER 2
+    <p>test 2</p>
+  </h1>
   <p>paragraph</p>
 </app-child>
 
@@ -95,12 +99,12 @@
 
  <! –– VIA TS TO HTML ONLY ––>
 <hr>
-<h2>PASSING MULTIPLE NG-TEMPLATE TO CHILD VIA @INPUT -> NG-CONTAINER(NG-TEMPLATE)</h2>
+<h3>PASSING MULTIPLE NG-TEMPLATE TO CHILD VIA @INPUT -> NG-CONTAINER(NG-TEMPLATE)</h2>
 <app-child [templateInput1]="template1" [templateInput2]="template2">
 </app-child>
 
 <hr>
-<h2>PASSING MULTIPLE NG-TEMPLATE TO CHILD VIA @CONTENTCHILDREN -> NG-CONTAINER(NG-TEMPLATE)</h2>
+<h3>PASSING MULTIPLE NG-TEMPLATE TO CHILD VIA @CONTENTCHILDREN -> NG-CONTAINER(NG-TEMPLATE)</h2>
 <app-child>
   <ng-template>
     <h1>HEADER 1</h1>
